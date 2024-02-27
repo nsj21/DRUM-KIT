@@ -1,30 +1,20 @@
-var al = ["w","a", "s", "d","j","k","l"];
+
 
 // button press
 for(var i = 0 ; i < document.querySelectorAll(".drum").length ; i++){
     document.querySelectorAll("button")[i].addEventListener("click", function(){
         makeSound(this.innerHTML);
         btnAnimation(this.innerHTML);
-        // playSoundAuto(this.innerHTML);
 
     });
 }
-// function playSoundAuto(alpha) {
-//     for (var i = 0; i < al.length; i++) {
-//         if (al[i] === alpha) {
-//             for (var j = i + 1; j < al.length; j++) {
-//                 setTimeout(makeSound.bind(null, al[j]), (j - i) * 700);
-//             }
-//         }
-//     }
-// }
+
 
     
 // key press
 document.addEventListener("keydown", function(event){
     makeSound(event.key);
     btnAnimation(event.key);
-    // playSoundAuto(event.key);
 
 });
 
@@ -62,17 +52,11 @@ function makeSound(alpha){
 }
 }
 function btnAnimation(currentKey){
-   var activeBtn = document.querySelector("." + currentKey);
-   activeBtn.classList.add("pressed");
-   setTimeout(function (){
-    activeBtn.classList.remove("pressed");
-   } , 100);
+    var active = document.querySelector("."+currentKey);
+    active.classList.add("pressed");
+    setTimeout(function(){
+        active.classList.remove("pressed");
+    } , 100);
 }
 
 
-
-// if(alpha==="w"){
-//     setTimeout(function(){
-//         makeSound("a");
-//     }, 500);
-// }
